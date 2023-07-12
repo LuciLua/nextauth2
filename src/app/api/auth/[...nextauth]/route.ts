@@ -1,6 +1,8 @@
 import NextAuth from "next-auth/next";
 import GithubProvider from "next-auth/providers/github";
 
+import jwt from "jsonwebtoken"
+
 const handler = NextAuth({
   providers: [
     GithubProvider({
@@ -8,6 +10,12 @@ const handler = NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  //   vai pra essa pagina assim que invocar a funcao sigin/signout no useSession!
+  pages: {
+    // signIn: "/signin",
+    // signOut: "/signout"
+  },
+  secret: process.env.NEXTAUTH_SECRET
 });
 
-export { handler as GET, handler as POST }
+export { handler as GET, handler as POST };

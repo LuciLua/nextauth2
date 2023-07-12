@@ -2,6 +2,7 @@
 
 import { signIn, useSession } from "next-auth/react"
 import styles from "./../styles/rootpage.module.scss"
+import {redirect} from "next/navigation"
 
 export default function RootPage() {
 

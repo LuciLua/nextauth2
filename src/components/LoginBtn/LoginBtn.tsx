@@ -3,8 +3,11 @@ import { useSession, signIn, signOut } from "next-auth/react"
 import styles from "./LoginBtn.module.scss"
 import { CiLogin, CiLogout } from "react-icons/ci"
 
+
 export default function LoginBtn() {
+
     const { data: session } = useSession()
+    
     function stateLogin() {
         if (session) {
             return (
