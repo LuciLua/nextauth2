@@ -27,7 +27,7 @@ export default function RootPage() {
                         usuário
                     </h2>
                     <h3>Faça seu login antes de prosseguir</h3>
-                    <button onClick={() => signIn()}>Login</button>
+                    <button onClick={() => signIn('github')}>Login</button>
                 </>
             )
         }
