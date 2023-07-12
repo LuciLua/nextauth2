@@ -1,0 +1,24 @@
+{
+  "name": "teste2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^13.4.9",
+    "next-auth": "^4.22.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.10.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.4.1",
+    "@types/react": "^18.2.14",
+    "sass": "^1.63.6",
+    "typescript": "^5.1.6"
+  }
+}
