@@ -1,8 +1,9 @@
 'use client'
 
-import { signIn, useSession } from "next-auth/react"
+import { useSession } from "next-auth/react"
 import styles from "./../styles/rootpage.module.scss"
-import {redirect} from "next/navigation"
+import Link from "next/link"
+import { FaLink } from "react-icons/fa"
 
 export default function RootPage() {
 
@@ -26,8 +27,12 @@ export default function RootPage() {
                     <h2>
                         usuário
                     </h2>
-                    <h3>Faça seu login antes de prosseguir</h3>
-                    <button onClick={() => signIn('github')}>Login</button>
+                    <h3>
+                        <Link href={'/auth/signin'}>
+                            <span className={styles.icon}><FaLink /></span>
+                            <span>Faça seu login antes de prosseguir</span>
+                        </Link>
+                    </h3>
                 </>
             )
         }

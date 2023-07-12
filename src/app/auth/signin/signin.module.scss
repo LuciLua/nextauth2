@@ -1,0 +1,99 @@
+.btnCollection {
+    display: flex;
+    margin-top: 15px;
+
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+
+    border-radius: 12px;
+
+    border: 1px solid #cfcfcf;
+
+    max-width: 300px;
+    min-width: 200px;
+    width: 100%;
+
+    box-shadow: 0 0 32px #c3c3c3;
+    overflow: hidden;
+
+
+    h1 {
+        font-weight: 800;
+        font-size: 30px;
+        color: #121212;
+
+        width: 100%;
+        padding: 10px 20px;
+
+    }
+
+    h2 {
+        font-weight: 500;
+        font-size: 15px;
+        color: #5c5c5c;
+        padding: 10px 20px;
+        margin-bottom: 40px;
+    }
+
+    a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #121212;
+    }
+
+    button {
+
+        width: 100%;
+        border: none;
+
+        background-color: transparent;
+        color: #121212;
+
+        cursor: pointer;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        border-top: 1px solid #cfcfcf;
+        gap: 10px;
+
+
+        &:hover, &:hover a {
+            background-color: #121212;
+            color: #ddd;
+        }
+
+
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+
+            padding: 15px 0;
+
+        }
+
+        span.icon {
+            font-size: 35px;
+        }
+
+        span.label {
+            font-size: 17px;
+
+            font-family: inherit;
+            font-weight: 600;
+        }
+    }
+
+}
