@@ -1,6 +1,7 @@
 'use client'
 
 import { useSession } from "next-auth/react"
+import Link from "next/link"
 import LoginBtn from "../LoginBtn/LoginBtn"
 import styles from "./Header.module.scss"
 
@@ -8,7 +9,7 @@ function Header() {
 
     const { data: session } = useSession()
 
-    function profile() {
+    function profilePhoto() {
         if (session) {
             return (
                 <img src={`${session.user.image}`} />
@@ -22,21 +23,30 @@ function Header() {
         }
     }
 
+    function profile() {
+        const convertToUsername = (value: string) => value.split(" ").toString().toLowerCase().replace(",", "")
+        return session ? <li><Link href={`/${convertToUsername(session.user.name)}`}>Perfil</Link></li> : null
+    }
+    function dashboard() {
+        const convertToUsername = (value: string) => value.split(" ").toString().toLowerCase().replace(",", "")
+        return session ? <li><Link href={`/${convertToUsername(session.user.name)}/dashboard`}>Dashboard</Link></li> : null
+    }
+
+
     return (
         <div className={styles.container}>
             <header className={styles.content}>
                 <ul className={styles.left_menu}>
-                    <li><h1>Logo</h1></li>
-                    <li>menu1</li>
-                    <li>menu2</li>
-                    <li>menu3</li>
+                    <li><Link href={'/'}><h1>Logo</h1></Link></li>
+                    {profile()}
+                    {dashboard()}
                 </ul>
                 <ul className={styles.right_menu}>
                     <li>
                         <LoginBtn />
                     </li>
                     <li>
-                        {profile()}
+                        {profilePhoto()}
                     </li>
                 </ul>
             </header>
