@@ -1,37 +1,51 @@
 import styles from "./dashboard.module.scss"
+import { CgHomeAlt, CgNotes, CgUserList } from "react-icons/cg"
 
 export default function dashboard({ params }) {
     return (
-        <div className={styles.container}>
-            <header className={styles.header_container}>
-                <ul>
-                    <li>item1</li>
-                    <li>item2</li>
-                    <li>item3</li>
-                    <li>item4</li>
-                </ul>
-            </header>
-            <div className={styles.table}>
-                <div className={styles.table_header}>
 
-                    <div className={styles.title_subtitle}>
-                        <h1>Dashboard</h1>
-                        <h2>Subtitle</h2>
+        <div className={styles.container}>
+
+            <div className={styles.elements_dashboard}>
+                <div className={styles.element}>
+                    <h1>Items</h1>
+                    <h2>3</h2>
+                </div>
+                <div className={styles.element}>
+                    <h1>Contas</h1>
+                    <h2>2</h2>
+                </div>
+            </div>
+
+            <div className={styles.itens_relation}>
+                <h1>
+                    relacao itens e contas
+                </h1>
+
+                <div className={styles.itens_collection}>
+                    <div className={styles.line}>
+                        <div>Nome do Item</div>
+                        <div>Conta</div>
+                        <div>Data</div>
                     </div>
-                    <div>
-                        <button>Create</button>
+                    <div className={styles.line}>
+                        <div>algum nome</div>
+                        <div>Luci4Dev</div>
+                        <div>23/10/2022</div>
+                    </div>
+                    <div className={styles.line}>
+                        <div>algum nome</div>
+                        <div>LuciLua</div>
+                        <div>05/02/2021</div>
+                    </div>
+                    <div className={styles.line}>
+                        <div>algum nome</div>
+                        <div>LuciLua</div>
+                        <div>14/06/2023</div>
                     </div>
                 </div>
             </div>
-            <div>
-                <header>area de inclusao</header>
-                <div>
-                    <div>item 1</div>
-                    <div>item 2</div>
-                    <div>item 3</div>
-                    <div>item 4</div>
-                </div>
-            </div>
+
         </div>
     )
 }

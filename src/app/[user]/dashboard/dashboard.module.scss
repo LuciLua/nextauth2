@@ -1,66 +1,84 @@
 .container {
     width: 100%;
     display: flex;
-    align-items: center;
     flex-direction: column;
+    align-items: center;
 
-    header.header_container {
-        width: 100%;
-        min-height: 40px;
-        max-height: 40px;
+    padding: 20px;
 
+    .elements_dashboard {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        margin: 30px 0;
 
-        color: #121212;
-        background-color: #eee;
-        border-bottom: 1px solid #ddd;
-        box-shadow: 0 10px 12px #afafaf18;
+        .element {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 32px #cdcdcd;
+            border-radius: 12px;
 
-        z-index: 10;
-
-        ul {
             display: flex;
-            list-style: none;
+            justify-content: center;
             align-items: center;
-            justify-content: space-around;
-            height: 100%;
-            font-weight: 400;
-            color: #121212;
-            font-size: 15px;
+
+            gap: 5px;
+
+
+            h1{
+                font-size: 25px;
+            }
+            h2{
+                height: 20px;
+                width: 20px;
+                font-size: 11px;
+                color: #fff;
+                background-color: #3767d7;
+                border-radius: 60%;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                top: -10px;
+                position: relative;
+            }
         }
     }
 
-    .table {
-        background-color: #fff;
+    .itens_relation{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
         width: 100%;
-        height: 100%;
-        padding: 20px;
-        min-height: 500px;
+        max-width: 1300px;
 
-        .table_header {
-            display: flex;
-            justify-content: space-between;
+        .itens_collection{
+            width: 100%;
+            border: 1px solid #121212;
 
-            .title_subtitle {
-                h1 {
-                    color: #121212;
+            .line{
+
+                &:first-child{
+                    background-color: #ddd;
                 }
+                display: flex;
+                background-color: #fff;
+                color: #121212;
+                width: 100%;
+                padding: 5px 10px;
+                border-bottom: 1px solid #121212;
+                font-size: 18px;
 
-                h2 {
-                    color: #616161;
+                justify-content: space-between;
+                
+                &:last-child{
+                    border-bottom: none;
                 }
-            }
-
-            button {
-                border-radius: 30px;
-                background-color: #121212;
-                color: #fff;
-                border: none;
-                padding: 10px 25px;
-
-                font-family: inherit;
-                font-weight: 600;
             }
         }
-
     }
 }
