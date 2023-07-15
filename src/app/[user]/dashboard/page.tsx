@@ -1,5 +1,6 @@
 import styles from "./dashboard.module.scss"
 import { CgHomeAlt, CgNotes, CgUserList } from "react-icons/cg"
+import TableItem from "../../../components/TableItem/TableItem"
 
 export default function dashboard({ params }) {
     return (
@@ -23,26 +24,8 @@ export default function dashboard({ params }) {
                 </h1>
 
                 <div className={styles.itens_collection}>
-                    <div className={styles.line}>
-                        <div>Nome do Item</div>
-                        <div>Conta</div>
-                        <div>Data</div>
-                    </div>
-                    <div className={styles.line}>
-                        <div>algum nome</div>
-                        <div>Luci4Dev</div>
-                        <div>23/10/2022</div>
-                    </div>
-                    <div className={styles.line}>
-                        <div>algum nome</div>
-                        <div>LuciLua</div>
-                        <div>05/02/2021</div>
-                    </div>
-                    <div className={styles.line}>
-                        <div>algum nome</div>
-                        <div>LuciLua</div>
-                        <div>14/06/2023</div>
-                    </div>
+                   <TableItem admin={true} date="02/12/2023" id="1" name="Item da luci" owner="LuciLua"/>
+                   <TableItem admin={true} date="02/12/2023" id="2" name="Item da luci" owner="LuciLua"/>
                 </div>
             </div>
 
