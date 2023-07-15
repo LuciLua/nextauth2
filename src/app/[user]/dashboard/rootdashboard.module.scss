@@ -4,6 +4,8 @@
     align-items: center;
     flex-direction: column;
 
+    background-color: #eee;
+
     header.header_container {
         width: 100%;
         min-height: 40px;
@@ -59,5 +61,8 @@
 
     .dashboard{
         width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 }

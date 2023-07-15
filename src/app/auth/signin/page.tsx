@@ -22,17 +22,31 @@ export default function signin() {
         // Verifica se o email já existe no array
         const emailExists = await usersArray.some((user: any) => user?.email === emailToCheck);
 
+        const dataAtual = new Date();
+
+        // Obtém os componentes da data
+        const dia = dataAtual.getDate();
+        const mes = dataAtual.getMonth() + 1; // Os meses são indexados de 0 a 11, então adicionamos 1
+        const ano = dataAtual.getFullYear();
+        const hora = dataAtual.getHours();
+        const minuto = dataAtual.getMinutes();
+
+
+        // Formata a data e hora
+        const dataFormatada = `${dia}/${mes}/${ano} às ${hora}:${minuto}`;
+
         if (!emailExists) {
             const user_formated = {
                 name: session?.user?.name,
                 email: session?.user?.email,
-                image: session?.user?.image
+                image: session?.user?.image,
+                date: dataFormatada
             };
 
-            if(status === "authenticated"){
+            if (status === "authenticated") {
                 usersArray.push(user_formated);
                 console.log(usersArray)
-                
+
                 if (usersArray.length > 0) {
                     localStorage.setItem('users', JSON.stringify(usersArray));
                     console.log('Usuário adicionado com sucesso.');

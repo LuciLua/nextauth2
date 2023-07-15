@@ -67,27 +67,6 @@
             overflow: hidden;
 
             font-weight: 600;
-
-            
-            .line{
-
-                &:first-child{
-                    background-color: #ddd;
-                }
-                display: flex;
-                background-color: #fff;
-                color: #121212;
-                width: 100%;
-                padding: 5px 10px;
-                border-bottom: 1px solid #121212;
-                font-size: 18px;
-
-                justify-content: space-between;
-                
-                &:last-child{
-                    border-bottom: none;
-                }
-            }
         }
     }
 }

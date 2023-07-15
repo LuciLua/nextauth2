@@ -26,9 +26,11 @@ function TableItem(data: TableItemProps) {
                     <input type="checkbox" name="item_check" id="item_check" />
                 </div>
                 : null}
-            <div className={styles.item_id}>
-                <p>{id}</p>
-            </div>
+            {id ?
+                <div className={styles.item_id}>
+                    <p>{id}</p>
+                </div>
+                : null}
             <div className={styles.item_name}>
                 <p>{name}</p>
             </div>
@@ -51,9 +53,11 @@ function TableItem(data: TableItemProps) {
                 }
                 {owner}
             </div>
-            <div className={styles.item_date}>
-                <p>{date}</p>
-            </div>
+            {date ?
+                <div className={styles.item_date}>
+                    <p>{date}</p>
+                </div>
+                : null}
 
             {admin
                 ?
