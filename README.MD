@@ -2,4 +2,4 @@
 
 - Signin with google or github
 - Page protection
-- LocalStorage for save yours accounts
+- LocalStorage for save yours accounts and itens
