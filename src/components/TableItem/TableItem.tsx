@@ -4,20 +4,22 @@ import { FaEdit } from "react-icons/fa"
 import { HiDocumentRemove } from "react-icons/hi"
 
 interface TableItemProps {
-    admin: boolean
-    date: string,
-    id: string,
-    owner: string,
+    admin?: boolean
+    date?: string,
+    id?: string,
+    owner?: string,
     name: string
+    email?: string,
+    image?: string
 }
 
 
 function TableItem(data: TableItemProps) {
 
-    const { admin, date, id, name, owner } = data
+    const { admin, date, id, name, owner, email, image } = data
 
     return (
-        <div className={styles.item}>
+        <div className={styles.item} key={email}>
             {admin
                 ?
                 <div className={styles.item_check}>
@@ -30,10 +32,23 @@ function TableItem(data: TableItemProps) {
             <div className={styles.item_name}>
                 <p>{name}</p>
             </div>
-            <div className={styles.item_owner}>
-                <div className={styles.item_photo_owner}>
-                    <img src="https://avatars.githubusercontent.com/u/43728964?v=4" />
+
+            {email ?
+                <div className={styles.item_name}>
+                    <p>{email}</p>
                 </div>
+                : null}
+
+            <div className={styles.item_owner}>
+                {image ?
+
+                    <div className={styles.item_photo_owner}>
+                        <img src={image} />
+                    </div> :
+                    <div className={styles.item_photo_owner}>
+                        <img src="https://avatars.githubusercontent.com/u/43728964?v=4" />
+                    </div>
+                }
                 {owner}
             </div>
             <div className={styles.item_date}>

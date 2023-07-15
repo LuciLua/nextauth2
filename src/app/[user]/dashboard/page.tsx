@@ -1,10 +1,11 @@
 import styles from "./dashboard.module.scss"
-import { CgHomeAlt, CgNotes, CgUserList } from "react-icons/cg"
 import TableItem from "../../../components/TableItem/TableItem"
 
 export default function dashboard({ params }) {
-    return (
 
+    console.log(params)
+
+    return (
         <div className={styles.container}>
 
             <div className={styles.elements_dashboard}>
@@ -24,8 +25,8 @@ export default function dashboard({ params }) {
                 </h1>
 
                 <div className={styles.itens_collection}>
-                   <TableItem admin={true} date="02/12/2023" id="1" name="Item da luci" owner="LuciLua"/>
-                   <TableItem admin={true} date="02/12/2023" id="2" name="Item da luci" owner="LuciLua"/>
+                   <TableItem admin date="02/12/2023" id="1" name="Item da luci" owner="LuciLua"/>
+                   <TableItem admin date="02/12/2023" id="2" name="Item da luci" owner="LuciLua"/>
                 </div>
             </div>
 

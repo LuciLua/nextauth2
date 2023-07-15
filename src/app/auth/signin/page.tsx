@@ -11,14 +11,48 @@ import { redirect } from "next/navigation"
 
 export default function signin() {
 
-
-
     const { data: session, status } = useSession()
-
     const [state, setState] = useState<string>("")
+
+
+    async function setUserLocal() {
+        const usersArray = await JSON.parse(localStorage.getItem('users')) || []; // Verifica se há um array salvo no localStorage ou cria um novo array vazio
+        const emailToCheck = session?.user?.email;
+
+        // Verifica se o email já existe no array
+        const emailExists = await usersArray.some((user: any) => user?.email === emailToCheck);
+
+        if (!emailExists) {
+            const user_formated = {
+                name: session?.user?.name,
+                email: session?.user?.email,
+                image: session?.user?.image
+            };
+
+            if(status === "authenticated"){
+                usersArray.push(user_formated);
+                console.log(usersArray)
+                
+                if (usersArray.length > 0) {
+                    localStorage.setItem('users', JSON.stringify(usersArray));
+                    console.log('Usuário adicionado com sucesso.');
+                } else {
+                    null
+                }
+            } else {
+                null
+            }
+
+
+        } else {
+            console.log('O email já está cadastrado. Nenhum usuário foi adicionado.');
+        }
+
+    }
 
     useEffect(() => {
         setState(status)
+        setUserLocal()
     }, [status])
 
 
