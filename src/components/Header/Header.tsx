@@ -40,7 +40,7 @@ function Header() {
             {ItemMenu("a", <CiHome />, 'Homepage', () => { ACTION_invoke_menu_account() }, null, '/')}
             {ItemMenu("a", <CiUser />, 'Perfil', () => { ACTION_invoke_menu_account() }, null, `/${username}`)}
             {ItemMenu("a", <CiGrid2H />, 'Dashboard', () => { ACTION_invoke_menu_account() }, null, `/${username}/dashboard`)}
-            {ItemMenu("btn", <CiLogout />, 'Sair', () => { ACTION_invoke_menu_account() && signOut() }, `${styles.signout}`)}
+            {ItemMenu("btn", <CiLogout />, 'Sair', () => { signOut() }, `${styles.signout}`)}
         </>)
     }
 
