@@ -47,6 +47,10 @@
                 h1 {
                     font-size: 30px;
                     font-weight: 600;
+
+                    background: linear-gradient(to right, rgb(171, 88, 254), rgb(193, 142, 254));
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
                 }
             }
         }
@@ -78,10 +82,11 @@
                     z-index: 30px;
                     cursor: pointer;
 
-                    &:hover{
+                    &:hover {
                         background-color: #d0d0d0;
                     }
-                    &:active{
+
+                    &:active {
                         background-color: #b0b0b0;
                     }
 
@@ -98,8 +103,9 @@
                 button.signin {
                     overflow: hidden;
                     border-radius: 30px;
-                    background-color: #ddd;
-                    color: #121212;
+                    // background-color: #121212;
+                    background: linear-gradient(45deg, #be8dff, rgb(138, 115, 243));
+                    color: #fff;
                     font-family: inherit;
                     padding: 8px 25px;
                     width: 100%;
@@ -110,9 +116,19 @@
                     align-items: center;
 
                     gap: 10px;
-                    border: 1.5px solid rgb(41, 41, 41);
+                    border: none;
+
+                    box-shadow: none;
+                    border: #edc8fb5c solid 1px;
 
                     font-weight: 700;
+
+                    &:hover{
+                    box-shadow: 0 0 12px #505050be inset, 0 0 12px #fff;
+                    border: #edc8fba9 solid 1px;
+
+
+                    }
 
                     svg {
                         font-size: 20px;
@@ -144,7 +160,7 @@
                 padding: 10px;
 
                 display: none;
-                
+
                 &.closed {
                     display: none;
                 }

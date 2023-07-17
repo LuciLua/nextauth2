@@ -52,7 +52,7 @@ function Header() {
         <div className={styles.container}>
             <header className={styles.content}>
                 <ul className={styles.left_menu}>
-                    <li><Link href={'/'}><h1>Logo</h1></Link></li>
+                    <li><Link href={'/'}><h1>maklip</h1></Link></li>
                 </ul>
                 <ul className={styles.right_menu}>
                     {session ?
