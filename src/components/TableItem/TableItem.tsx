@@ -19,7 +19,7 @@ function TableItem(data: TableItemProps) {
     const { admin, date, id, name, owner, email, image } = data
 
     return (
-        <div className={styles.item} key={email}>
+        <div className={styles.item} key={id}>
             {admin
                 ?
                 <div className={styles.item_check}>
