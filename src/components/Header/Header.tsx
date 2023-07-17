@@ -5,7 +5,7 @@ import Link from "next/link"
 import styles from "./Header.module.scss"
 
 import { CiLogin, CiLogout, CiUser, CiGrid2H, CiHome } from "react-icons/ci"
-import { MouseEvent, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 
 function Header() {
@@ -15,10 +15,7 @@ function Header() {
     const [menuOpen, setMenuOpen] = useState<Boolean>(false)
     const modal_menu_account = useRef<HTMLDivElement>(null)
 
-    function ACTION_invoke_menu_account() {
-        menuOpen ? setMenuOpen(false) : setMenuOpen(true)
-        return null
-    }
+    function profilePhotoLoad() { return <img src={`${session?.user?.image}`} /> }
 
     function STYLE_closeOrOpenModalAccount() {
         const removeStyleByClassList = (styleName: string) => { modal_menu_account.current.classList.remove(`${styleName}`) }
@@ -27,37 +24,25 @@ function Header() {
         if (session) { menuOpen ? removeAndAdd(styles.closed, styles.opened) : removeAndAdd(styles.opened, styles.closed) }
     }
 
-    function profilePhoto() { return <img src={`${session.user.image}`} /> }
+    function ACTION_invoke_menu_account() { menuOpen ? setMenuOpen(false) : setMenuOpen(true); return null }
 
-    function menuItens_account_open() {
-        const convertToUsername = (value: string) => value.replace(/ /g, "").toLowerCase();
-        const ItemMenu = (type: 'btn' | 'a', icon: any, label: string, classname?: any, href?: string) => {
+    function CREATE_menuItens_account_open() {
+        const convertUserToUsername = (value: string) => value.replace(/ /g, "").toLowerCase();
+        const username = convertUserToUsername(session.user.name)
+        const ItemMenu = (type: 'btn' | 'a', icon: any, label: string, action: any, classname?: any, href?: string) => {
             switch (type) {
-                case 'a':
-                    return (
-                        <Link
-                            onClick={() => ACTION_invoke_menu_account()}
-                            href={href}>{icon} {label}
-                        </Link>
-                    )
-                case 'btn':
-                    return (
-                        <button
-                            onClick={() => { ACTION_invoke_menu_account() && signOut() }}
-                            className={classname}>{icon} {label}
-                        </button>
-                    )
+                case 'a': return (<Link onClick={action} href={href}>{icon} {label} </Link>);
+                case 'btn': return (<button onClick={action} className={classname}>{icon} {label}</button>)
             }
         }
 
         return (<>
-            {ItemMenu("a", <CiHome />, 'Homepage', null, '/')}
-            {ItemMenu("a", <CiUser />, 'Perfil', null, `/${convertToUsername(session.user.name)}`)}
-            {ItemMenu("a", <CiGrid2H />, 'Dashboard', null, `/${convertToUsername(session.user.name)}/dashboard`)}
-            {ItemMenu("btn", <CiLogout />, 'Sair', `${styles.signout}`)}
+            {ItemMenu("a", <CiHome />, 'Homepage', () => { ACTION_invoke_menu_account() }, null, '/')}
+            {ItemMenu("a", <CiUser />, 'Perfil', () => { ACTION_invoke_menu_account() }, null, `/${username}`)}
+            {ItemMenu("a", <CiGrid2H />, 'Dashboard', () => { ACTION_invoke_menu_account() }, null, `/${username}/dashboard`)}
+            {ItemMenu("btn", <CiLogout />, 'Sair', () => { ACTION_invoke_menu_account() && signOut() }, `${styles.signout}`)}
         </>)
     }
-
 
     useEffect(() => {
         STYLE_closeOrOpenModalAccount()
@@ -75,12 +60,12 @@ function Header() {
                             <li><button
                                 className={styles.invoke_menu_account}
                                 onClick={() => ACTION_invoke_menu_account()}>
-                                {profilePhoto()}
+                                {profilePhotoLoad()}
                             </button></li>
                             <div
                                 ref={modal_menu_account}
                                 className={styles.modal_menu_account}>
-                                {menuItens_account_open()}
+                                {CREATE_menuItens_account_open()}
                             </div>
                         </>
                         :
