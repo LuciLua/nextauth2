@@ -11,7 +11,7 @@ export default function layoutDashboard({ children, params }) {
             <header className={styles.header_container}>
                 <ul>
                     <li>
-                        <Link href={`/${user}/dashboard`}
+                        <Link href={`/u/${user}/dashboard`}
 
                         >
                             <span className={styles.icon}><CgHomeAlt /></span>
@@ -19,14 +19,14 @@ export default function layoutDashboard({ children, params }) {
                         </Link>
                     </li>
                     <li>
-                        <Link href={`/${user}/dashboard/itens`}>
+                        <Link href={`/u/${user}/dashboard/itens`}>
                             <span className={styles.icon}><CgNotes /></span>
                             <span className={styles.label}>Meus itens</span>
                         </Link>
 
                     </li>
                     <li>
-                        <Link href={`/${user}/dashboard/contas`}>
+                        <Link href={`/u/${user}/dashboard/contas`}>
                             <span className={styles.icon}><CgUserList /></span>
                             <span className={styles.label}>Contas</span>
                         </Link>

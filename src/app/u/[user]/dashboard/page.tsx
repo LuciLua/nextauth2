@@ -1,5 +1,5 @@
+import TableItem from "../../../../components/TableItem/TableItem"
 import styles from "./dashboard.module.scss"
-import TableItem from "../../../components/TableItem/TableItem"
 
 export default function dashboard({ params }) {
 

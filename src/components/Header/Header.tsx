@@ -4,7 +4,7 @@ import { signIn, signOut, useSession } from "next-auth/react"
 import Link from "next/link"
 import styles from "./Header.module.scss"
 
-import { CiLogin, CiLogout, CiUser, CiGrid2H, CiHome } from "react-icons/ci"
+import { CiLogin, CiLogout, CiUser, CiGrid2H, CiHome, CiMoneyBill } from "react-icons/ci"
 import { useEffect, useRef, useState } from "react"
 
 
@@ -38,8 +38,9 @@ function Header() {
 
         return (<>
             {ItemMenu("a", <CiHome />, 'Homepage', () => { ACTION_invoke_menu_account() }, null, '/')}
-            {ItemMenu("a", <CiUser />, 'Perfil', () => { ACTION_invoke_menu_account() }, null, `/${username}`)}
-            {ItemMenu("a", <CiGrid2H />, 'Dashboard', () => { ACTION_invoke_menu_account() }, null, `/${username}/dashboard`)}
+            {ItemMenu("a", <CiUser />, 'Perfil', () => { ACTION_invoke_menu_account() }, null, `/u/${username}`)}
+            {ItemMenu("a", <CiGrid2H />, 'Dashboard', () => { ACTION_invoke_menu_account() }, null, `/u/${username}/dashboard`)}
+            {ItemMenu("a", <CiMoneyBill />, 'Planos', () => { ACTION_invoke_menu_account() }, null, `/plans`)}
             {ItemMenu("btn", <CiLogout />, 'Sair', () => { signOut() }, `${styles.signout}`)}
         </>)
     }

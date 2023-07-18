@@ -1,7 +1,7 @@
 'use client'
+import TableItem from "../../../../../components/TableItem/TableItem"
+import User from "../../../../types/User"
 import styles from "./contas.module.scss"
-import TableItem from "../../../../components/TableItem/TableItem"
-import User from "../../../types/User"
 
 export default function contas() {
     const users = JSON.parse(localStorage.getItem('users'))

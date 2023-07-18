@@ -4,6 +4,7 @@ import { useSession } from "next-auth/react"
 import styles from "./../styles/rootpage.module.scss"
 import Link from "next/link"
 import { FaLink, FaCheckCircle } from "react-icons/fa"
+import Plans from "../components/Plans/Plans"
 
 export default function RootPage() {
 
@@ -51,52 +52,7 @@ export default function RootPage() {
                     <img src="/preview.webp" alt="" />
                 </div>
             </div>
-            <div className={styles.content_2}>
-
-                <div className={styles.plans}>
-                    <div className={styles.plan}>
-                        <h1>Basico</h1>
-                        <p>description here description here description.</p>
-                        <ul>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                        </ul>
-                        <h2>R$1200<span>/dia</span></h2>
-                        <button>Escolher</button>
-                    </div>
-                    <div className={styles.plan}>
-                        <h1>Padrão</h1>
-                        <p>description here description here description.</p>
-                        <ul>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                        </ul>
-                        <h2>R$2250<span>/dia</span></h2>
-                        <button>Escolher</button>
-                    </div>
-                    <div className={styles.plan}>
-                        <h1>Master</h1>
-                        <p>description here description here description.</p>
-                        <ul>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                            <li><span><FaCheckCircle /></span><span> Item tal tal</span></li>
-                        </ul>
-                        <h2>R$3000<span>/dia</span></h2>
-                        <button>Escolher</button>
-                    </div>
-
-                </div>
-
-            </div>
+            <Plans />
         </div>
     )
 }
