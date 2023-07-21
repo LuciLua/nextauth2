@@ -14,8 +14,7 @@ const handler = NextAuth({
     }),
   ],
   pages: {
-    signOut: '/auth/signout',
-    signIn: '/auth/signin'
+    // signIn: '/auth/signin'
   },
   //   vai pra essa pagina assim que invocar a funcao sigin/signout no useSession!
   secret: process.env.NEXTAUTH_SECRET

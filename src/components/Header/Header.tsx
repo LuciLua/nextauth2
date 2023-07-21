@@ -6,12 +6,14 @@ import styles from "./Header.module.scss"
 
 import { CiLogin, CiLogout, CiUser, CiGrid2H, CiHome, CiMoneyBill } from "react-icons/ci"
 import { useEffect, useRef, useState } from "react"
+import Modal_SignIn from "../Modais/Signin/Signin"
 
 
 function Header() {
 
     const { data: session } = useSession()
 
+    const [openModalSignin, setOpenModalSignin] = useState<Boolean>(false)
     const [menuOpen, setMenuOpen] = useState<Boolean>(false)
     const modal_menu_account = useRef<HTMLDivElement>(null)
 
@@ -45,40 +47,51 @@ function Header() {
         </>)
     }
 
+    function OPEN_MODAL_signin() {
+        openModalSignin ? setOpenModalSignin(false) : setOpenModalSignin(true)
+    }
+
     useEffect(() => {
         STYLE_closeOrOpenModalAccount()
-    }, [menuOpen])
+    }, [menuOpen, openModalSignin])
 
     return (
-        <div className={styles.container}>
-            <header className={styles.content}>
-                <ul className={styles.left_menu}>
-                    <li><Link href={'/'}><h1>maklip</h1></Link></li>
-                </ul>
-                <ul className={styles.right_menu}>
-                    {session ?
-                        <>
+        <>
+            <div className={styles.container}>
+                <header className={styles.content}>
+                    <ul className={styles.left_menu}>
+                        <li><Link href={'/'}><h1>maklip</h1></Link></li>
+                    </ul>
+                    <ul className={styles.right_menu}>
+                        {session ?
+                            <>
+                                <li><button
+                                    className={styles.invoke_menu_account}
+                                    onClick={() => ACTION_invoke_menu_account()}>
+                                    {profilePhotoLoad()}
+                                </button></li>
+                                <div
+                                    ref={modal_menu_account}
+                                    className={styles.modal_menu_account}>
+                                    {CREATE_menuItens_account_open()}
+                                </div>
+                            </>
+                            :
                             <li><button
-                                className={styles.invoke_menu_account}
-                                onClick={() => ACTION_invoke_menu_account()}>
-                                {profilePhotoLoad()}
+                                className={styles.signin}
+                                onClick={() => OPEN_MODAL_signin()}>
+                                <CiLogin /> SignIn
                             </button></li>
-                            <div
-                                ref={modal_menu_account}
-                                className={styles.modal_menu_account}>
-                                {CREATE_menuItens_account_open()}
-                            </div>
-                        </>
-                        :
-                        <li><button
-                            className={styles.signin}
-                            onClick={() => signIn()}>
-                            <CiLogin /> SignIn
-                        </button></li>
-                    }
-                </ul>
-            </header>
-        </div>
+                        }
+                    </ul>
+                </header>
+            </div>
+            {openModalSignin ?
+                <Modal_SignIn
+                     setOpenModalSignin={setOpenModalSignin}/>
+                : null}
+        </>
+
     )
 }
 

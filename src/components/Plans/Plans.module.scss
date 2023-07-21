@@ -1,6 +1,6 @@
 .content_2 {
     background-color: #0b0b0b;
-    background: radial-gradient(400px, #432c52, 30px, #0b0b0b);
+    background: radial-gradient(400px, #ffffff, 30px, #d2d2d2);
 
     width: 100%;
     min-height: 400px;
@@ -33,7 +33,7 @@
 
 
         .plan {
-            background-color: #121213f7;
+            background-color: #fffffff7;
             min-height: 300px;
             height: fit-content;
             width: 280px;
@@ -48,7 +48,7 @@
 
             border-radius: 4px;
 
-            color: #ccc;
+            color: #2a2a2a;
 
             border: 1px solid #ffffff0c;
 
@@ -64,9 +64,10 @@
 
             &:nth-child(2) {
                 border: 1px solid #1a1a1a0b;
-                background: linear-gradient(45deg, #202020f0, #090909f8);
+                background: linear-gradient(45deg, #fffffff0, rgba(255, 255, 255, 0.973));
                 position: relative;
                 display: flex;
+                box-shadow: 0 0 32px #b1b1b1;
 
                 &:hover {
                     border: 1px solid #9999991b;
@@ -88,7 +89,7 @@
             }
 
             h1 {
-                color: #ccc;
+                color: #252525;
                 font-weight: 500;
                 margin-bottom: 15px;
                 font-size: 30px;
@@ -97,7 +98,7 @@
             p {
                 font-size: 15px;
                 font-weight: 400;
-                color: #aaa;
+                color: #464646;
                 margin-bottom: 20px;
                 line-height: 1.5;
 
@@ -105,7 +106,7 @@
 
             h2 {
                 font-size: 40px;
-                color: #ccc;
+                color: #232323;
                 font-weight: 700;
 
                 margin-bottom: 30px;
@@ -129,7 +130,7 @@
                     display: flex;
                     align-items: center;
                     gap: 10px;
-                    color: #989898;
+                    color: #373737;
                     font-weight: 500;
                 }
 
