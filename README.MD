@@ -1,5 +1,5 @@
 ## Next Auth Application
 
-- Signin with google or github
-- Page protection
-- LocalStorage for save yours accounts and itens
+- SignIn with google or github;
+- Page protection;
+- LocalStorage for save your account and itens.
